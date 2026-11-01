@@ -45,7 +45,7 @@ p + p { margin-top: 1rem; }
 .infografia { margin-top: 2.5rem; }
 .infografia img { width: 100%; max-width: 760px; display: block; border-radius: 14px; border: 1px solid var(--borde); background: var(--lavanda); min-height: 120px; }
 
-.servicios { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin: 1.5rem 0 2.5rem; }
+.servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin: 1.5rem 0 2.5rem; }
 .servicios .bloque { background: var(--niebla); }
 .video { position: relative; aspect-ratio: 16 / 9; max-width: 760px; border-radius: 14px; overflow: hidden; background: var(--tinta); }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -66,9 +66,9 @@ footer { background: var(--tinta); color: #e8efec; text-align: center; padding: 
 
 /* Línea de tiempo, etiquetas y botones secundarios */
 .linea { list-style: none; margin: 0; padding-left: 1.4rem; border-left: 3px solid var(--salvia-oscuro); }
-.linea li { position: relative; padding-bottom: 1.25rem; }
-.linea li:last-child { padding-bottom: 0; }
-.linea li::before { content: ""; position: absolute; left: calc(-1.4rem - 8px); top: .45rem; width: 13px; height: 13px; border-radius: 50%; background: var(--niebla); border: 3px solid var(--salvia-oscuro); }
+.linea > li { position: relative; padding-bottom: 1.25rem; }
+.linea > li:last-child { padding-bottom: 0; }
+.linea > li::before { content: ""; position: absolute; left: calc(-1.4rem - 8px); top: .45rem; width: 13px; height: 13px; border-radius: 50%; background: var(--niebla); border: 3px solid var(--salvia-oscuro); }
 .linea strong { display: block; }
 .linea .lugar { color: var(--tinta-suave); font-size: .95rem; }
 .linea ul { margin: .4rem 0 0 1.1rem; font-size: .98rem; }
@@ -80,3 +80,22 @@ footer { background: var(--tinta); color: #e8efec; text-align: center; padding: 
 .boton.secundario { background: transparent; color: var(--tinta); border: 2px solid var(--tinta); margin-left: .6rem; }
 .boton.secundario:hover { background: var(--tinta); color: #fff; }
 @media (max-width: 760px) { .boton.secundario { margin-left: 0; } }
+
+/* Servicios con foto recortada */
+.servicios .bloque img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; margin-bottom: 1rem; background: var(--salvia); display: block; }
+.servicios .bloque p + ul { margin-top: .6rem; }
+
+/* Experiencia y cursos */
+.linea .detalle { font-size: .98rem; margin-top: .5rem; }
+.bloque .cursos { margin: .4rem 0 0 1.2rem; font-size: .98rem; }
+
+/* Infografía: miniatura que se amplía al hacer clic */
+.infografia .ampliar { display: block; position: relative; padding: 0; border: 0; background: none; cursor: zoom-in; max-width: 420px; border-radius: 14px; }
+.infografia .ampliar img { width: 100%; max-width: none; }
+.infografia .ampliar:hover img { box-shadow: 0 6px 20px rgba(34, 57, 59, .25); }
+.infografia .ampliar:focus-visible { outline: 3px solid var(--tinta); outline-offset: 4px; }
+.infografia .pista { position: absolute; right: .7rem; bottom: .7rem; background: rgba(34, 57, 59, .88); color: #fff; font-size: .85rem; font-weight: 700; padding: .3rem .75rem; border-radius: 999px; }
+.visor { margin: auto; padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100vh; overflow: visible; cursor: zoom-out; }
+.visor::backdrop { background: rgba(34, 57, 59, .9); }
+.visor img { display: block; max-width: min(94vw, 1000px); max-height: 92vh; width: auto; height: auto; border-radius: 12px; }
+.visor .cerrar { position: absolute; top: -.6rem; right: -.6rem; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 0; background: #fff; color: var(--tinta); font-size: 1.6rem; line-height: 1; cursor: pointer; }
