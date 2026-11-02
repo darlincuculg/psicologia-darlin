@@ -99,3 +99,6 @@ footer { background: var(--tinta); color: #e8efec; text-align: center; padding: 
 .visor::backdrop { background: rgba(34, 57, 59, .9); }
 .visor img { display: block; max-width: min(94vw, 1000px); max-height: 92vh; width: auto; height: auto; border-radius: 12px; }
 .visor .cerrar { position: absolute; top: -.6rem; right: -.6rem; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 0; background: #fff; color: var(--tinta); font-size: 1.6rem; line-height: 1; cursor: pointer; }
+
+/* Video vertical (YouTube Short) */
+.video.vertical { aspect-ratio: 9 / 16; max-width: 340px; }
